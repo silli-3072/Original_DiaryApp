@@ -16,6 +16,9 @@
 		8240309E2B1D66E1003E8F99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240309D2B1D66E1003E8F99 /* HomeViewController.swift */; };
 		824030A02B1D66F4003E8F99 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240309F2B1D66F4003E8F99 /* AddDiaryViewController.swift */; };
 		824030A22B1D6701003E8F99 /* ViewDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824030A12B1D6701003E8F99 /* ViewDiaryViewController.swift */; };
+		824030A52B1DB600003E8F99 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 824030A42B1DB600003E8F99 /* Realm */; };
+		824030A72B1DB600003E8F99 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 824030A62B1DB600003E8F99 /* RealmSwift */; };
+		824030A92B1DB720003E8F99 /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824030A82B1DB720003E8F99 /* DiaryData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,7 @@
 		8240309D2B1D66E1003E8F99 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8240309F2B1D66F4003E8F99 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
 		824030A12B1D6701003E8F99 /* ViewDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDiaryViewController.swift; sourceTree = "<group>"; };
+		824030A82B1DB720003E8F99 /* DiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824030A72B1DB600003E8F99 /* RealmSwift in Frameworks */,
+				824030A52B1DB600003E8F99 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				824030892B1C9184003E8F99 /* AppDelegate.swift */,
+				824030A82B1DB720003E8F99 /* DiaryData.swift */,
 				8240308B2B1C9184003E8F99 /* SceneDelegate.swift */,
 				8240308D2B1C9184003E8F99 /* ViewController.swift */,
 				8240308F2B1C9184003E8F99 /* Main.storyboard */,
@@ -92,6 +99,10 @@
 			dependencies = (
 			);
 			name = Diary;
+			packageProductDependencies = (
+				824030A42B1DB600003E8F99 /* Realm */,
+				824030A62B1DB600003E8F99 /* RealmSwift */,
+			);
 			productName = Diary;
 			productReference = 824030862B1C9184003E8F99 /* Diary.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 8240307D2B1C9184003E8F99;
+			packageReferences = (
+				824030A32B1DB600003E8F99 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 824030872B1C9184003E8F99 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,6 +163,7 @@
 			files = (
 				8240308E2B1C9184003E8F99 /* ViewController.swift in Sources */,
 				8240308A2B1C9184003E8F99 /* AppDelegate.swift in Sources */,
+				824030A92B1DB720003E8F99 /* DiaryData.swift in Sources */,
 				8240308C2B1C9184003E8F99 /* SceneDelegate.swift in Sources */,
 				824030A02B1D66F4003E8F99 /* AddDiaryViewController.swift in Sources */,
 				8240309E2B1D66E1003E8F99 /* HomeViewController.swift in Sources */,
@@ -375,6 +390,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		824030A32B1DB600003E8F99 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		824030A42B1DB600003E8F99 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 824030A32B1DB600003E8F99 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		824030A62B1DB600003E8F99 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 824030A32B1DB600003E8F99 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8240307E2B1C9184003E8F99 /* Project object */;
 }

@@ -80,8 +80,15 @@
                         <color key="backgroundColor" red="0.90980392160000001" green="0.96078431369999995" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Saq-hv-mRB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="578-jo-oJm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="578-jo-oJm">
+                            <connections>
+                                <action selector="save" destination="RtU-vf-uR8" id="bD5-W6-UJy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sentenceTextView" destination="MvV-Wf-Pke" id="alg-Zz-3om"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ad-0o-S4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
