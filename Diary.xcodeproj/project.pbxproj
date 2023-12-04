@@ -13,6 +13,9 @@
 		824030912B1C9184003E8F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8240308F2B1C9184003E8F99 /* Main.storyboard */; };
 		824030932B1C9187003E8F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824030922B1C9187003E8F99 /* Assets.xcassets */; };
 		824030962B1C9187003E8F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 824030942B1C9187003E8F99 /* LaunchScreen.storyboard */; };
+		8240309E2B1D66E1003E8F99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240309D2B1D66E1003E8F99 /* HomeViewController.swift */; };
+		824030A02B1D66F4003E8F99 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240309F2B1D66F4003E8F99 /* AddDiaryViewController.swift */; };
+		824030A22B1D6701003E8F99 /* ViewDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824030A12B1D6701003E8F99 /* ViewDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		824030922B1C9187003E8F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		824030952B1C9187003E8F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		824030972B1C9187003E8F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8240309D2B1D66E1003E8F99 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8240309F2B1D66F4003E8F99 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
+		824030A12B1D6701003E8F99 /* ViewDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				8240308B2B1C9184003E8F99 /* SceneDelegate.swift */,
 				8240308D2B1C9184003E8F99 /* ViewController.swift */,
 				8240308F2B1C9184003E8F99 /* Main.storyboard */,
+				8240309D2B1D66E1003E8F99 /* HomeViewController.swift */,
+				8240309F2B1D66F4003E8F99 /* AddDiaryViewController.swift */,
+				824030A12B1D6701003E8F99 /* ViewDiaryViewController.swift */,
 				824030922B1C9187003E8F99 /* Assets.xcassets */,
 				824030942B1C9187003E8F99 /* LaunchScreen.storyboard */,
 				824030972B1C9187003E8F99 /* Info.plist */,
@@ -141,6 +150,9 @@
 				8240308E2B1C9184003E8F99 /* ViewController.swift in Sources */,
 				8240308A2B1C9184003E8F99 /* AppDelegate.swift in Sources */,
 				8240308C2B1C9184003E8F99 /* SceneDelegate.swift in Sources */,
+				824030A02B1D66F4003E8F99 /* AddDiaryViewController.swift in Sources */,
+				8240309E2B1D66E1003E8F99 /* HomeViewController.swift in Sources */,
+				824030A22B1D6701003E8F99 /* ViewDiaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
