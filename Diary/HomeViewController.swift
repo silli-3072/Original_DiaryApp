@@ -17,18 +17,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func addMorningDiary() {
-        let storyboard: UIStoryboard = self.storyboard!
-        let addDiaryVC = storyboard.instantiateViewController(withIdentifier: "AddDiary") as! UINavigationController
-        addDiaryVC.modalPresentationStyle = .fullScreen
-        self.present(addDiaryVC, animated: true, completion: nil)
+        transition()
         
     }
     
     @IBAction func addNightDiary() {
-        let storyboard: UIStoryboard = self.storyboard!
-        let addDiaryVC = storyboard.instantiateViewController(withIdentifier: "AddDiary") as! UINavigationController
-        addDiaryVC.modalPresentationStyle = .fullScreen
-        self.present(addDiaryVC, animated: true, completion: nil)
+        transition()
+        
     }
     
     func getCurrentDate() -> String {
@@ -38,6 +33,15 @@ class HomeViewController: UIViewController {
         let dateStr = formatter.string(from: date as Date)
         formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale?
         return  dateStr
+    }
+    
+    func transition() {
+        let storyboard: UIStoryboard = self.storyboard!
+        let addDiaryVC = storyboard.instantiateViewController(withIdentifier: "AddDiary") as! UINavigationController
+        addDiaryVC.modalPresentationStyle = .fullScreen
+        let getAddDiaryVC = addDiaryVC.viewControllers[0] as! AddDiaryViewController
+        getAddDiaryVC.dayData = getCurrentDate()
+        self.present(addDiaryVC, animated: true, completion: nil)
     }
     
 }
