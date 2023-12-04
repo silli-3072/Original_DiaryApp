@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,6 +23,9 @@
                                 <color key="tintColor" red="0.1803921568627451" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="addMorningDiary" destination="BYZ-38-t0r" eventType="touchUpInside" id="qQ9-QI-Jem"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlx-Zp-id1">
                                 <rect key="frame" x="46" y="465" width="300" height="200"/>
@@ -31,6 +34,9 @@
                                 <color key="tintColor" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="addNightDiary" destination="BYZ-38-t0r" eventType="touchUpInside" id="PhI-yv-NEm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日付を表示" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT6-Te-sex">
                                 <rect key="frame" x="71" y="78" width="250" height="80"/>
@@ -43,15 +49,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.90980392156862744" green="0.96078431372549022" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="060-s1-HnM"/>
                     <navigationItem key="navigationItem" id="DmM-8g-I6s"/>
                     <connections>
                         <outlet property="dayLabel" destination="dT6-Te-sex" id="eLo-I6-a2k"/>
-                        <segue destination="RtU-vf-uR8" kind="show" id="19o-hz-8fa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3782.4427480916029" y="-336.61971830985919"/>
+            <point key="canvasLocation" x="2856" y="-337"/>
         </scene>
         <!--Add Diary View Controller-->
         <scene sceneID="SPr-Rf-4dZ">
@@ -79,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ad-0o-S4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4707.6335877862593" y="-337.32394366197184"/>
+            <point key="canvasLocation" x="4553" y="-337"/>
         </scene>
         <!--Calender-->
         <scene sceneID="OnN-s7-ohv">
@@ -132,32 +138,31 @@
                         <color key="tintColor" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9Na-5a-JZb" kind="relationship" relationship="viewControllers" id="Oqr-mA-nG4"/>
-                        <segue destination="7zA-Gp-46d" kind="relationship" relationship="viewControllers" id="eh5-yJ-Ojs"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="OWh-aF-sCi"/>
+                        <segue destination="7zA-Gp-46d" kind="relationship" relationship="viewControllers" id="Aj2-gV-j7P"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7i-JS-Vkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1933.5877862595419" y="4.9295774647887329"/>
         </scene>
-        <!--Home-->
-        <scene sceneID="bCy-DX-KYE">
+        <!--Navigation Controller-->
+        <scene sceneID="Yeg-Ca-xYc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Na-5a-JZb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="KdV-P3-p9f"/>
+                <navigationController storyboardIdentifier="AddDiary" automaticallyAdjustsScrollViewInsets="NO" id="rTx-kZ-sm0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Og0-1L-btP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYY-Un-Lqv">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="prI-So-udC"/>
+                        <segue destination="RtU-vf-uR8" kind="relationship" relationship="rootViewController" id="O66-4k-7I8"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ukY-ap-WMi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGX-sy-pRB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2855.7251908396947" y="-336.61971830985919"/>
+            <point key="canvasLocation" x="3781" y="-337"/>
         </scene>
     </scenes>
     <resources>
