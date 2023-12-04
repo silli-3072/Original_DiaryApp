@@ -45,6 +45,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DmM-8g-I6s"/>
                     <connections>
+                        <outlet property="dayLabel" destination="dT6-Te-sex" id="eLo-I6-a2k"/>
                         <segue destination="RtU-vf-uR8" kind="show" id="19o-hz-8fa"/>
                     </connections>
                 </viewController>
