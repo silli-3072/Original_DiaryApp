@@ -7,6 +7,7 @@ class AddDiaryViewController: UIViewController {
     let realm = try! Realm()
     
     var dayData: String = ""
+    var timeOfDay: String = ""
     
     @IBOutlet var sentenceTextView: UITextView!
     
@@ -31,6 +32,7 @@ class AddDiaryViewController: UIViewController {
         
         diaryData.day = convertDate!
         diaryData.sentence = sentenceTextView.text ?? ""
+        diaryData.timeOfDay = timeOfDay
         
         try! realm.write {
             realm.add(diaryData)

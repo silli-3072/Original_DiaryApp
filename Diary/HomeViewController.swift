@@ -3,6 +3,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var timeOfDay: String = ""
+    
     @IBOutlet var dayLabel: UILabel!
     
     override func viewDidLoad() {
@@ -17,12 +19,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func addMorningDiary() {
-        transition()
+        timeOfDay = "morning"
+        transition(timeOfDay: timeOfDay)
         
     }
     
     @IBAction func addNightDiary() {
-        transition()
+        timeOfDay = "night"
+        transition(timeOfDay: timeOfDay)
         
     }
     
@@ -35,12 +39,13 @@ class HomeViewController: UIViewController {
         return  dateStr
     }
     
-    func transition() {
+    func transition(timeOfDay: String) {
         let storyboard: UIStoryboard = self.storyboard!
         let addDiaryVC = storyboard.instantiateViewController(withIdentifier: "AddDiary") as! UINavigationController
         addDiaryVC.modalPresentationStyle = .fullScreen
         let getAddDiaryVC = addDiaryVC.viewControllers[0] as! AddDiaryViewController
         getAddDiaryVC.dayData = getCurrentDate()
+        getAddDiaryVC.timeOfDay = timeOfDay
         self.present(addDiaryVC, animated: true, completion: nil)
     }
     
