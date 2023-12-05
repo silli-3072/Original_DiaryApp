@@ -6,9 +6,14 @@ class HomeViewController: UIViewController {
     var timeOfDay: String = ""
     
     @IBOutlet var dayLabel: UILabel!
+    @IBOutlet var addMorningButton: UIButton!
+    @IBOutlet var addNightButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addMorningButton.layer.cornerRadius = 30
+        addNightButton.layer.cornerRadius = 30
         
     }
     

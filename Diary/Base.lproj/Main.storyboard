@@ -52,6 +52,8 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="060-s1-HnM"/>
                     <navigationItem key="navigationItem" id="DmM-8g-I6s"/>
                     <connections>
+                        <outlet property="addMorningButton" destination="xmP-ac-hqs" id="ued-Z5-l0a"/>
+                        <outlet property="addNightButton" destination="vlx-Zp-id1" id="TqD-wR-l3h"/>
                         <outlet property="dayLabel" destination="dT6-Te-sex" id="eLo-I6-a2k"/>
                     </connections>
                 </viewController>
@@ -128,6 +130,10 @@
                         <color key="backgroundColor" red="0.90980392160000001" green="0.96078431369999995" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calender" image="calendar" catalog="system" id="hli-CL-sQf"/>
+                    <connections>
+                        <outlet property="morningButton" destination="kU7-Ab-J4b" id="hQn-aX-IqV"/>
+                        <outlet property="nightButton" destination="9T4-ie-wQ4" id="kLf-57-U1B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjz-mP-gsn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
