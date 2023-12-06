@@ -14,6 +14,8 @@ class AddDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sentenceTextView.translatesAutoresizingMaskIntoConstraints = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,6 +23,13 @@ class AddDiaryViewController: UIViewController {
         
         self.title = dayData
         
+    }
+    
+    //TODO: textviewが大きくて、画面を触った判定がされずらい
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.sentenceTextView.isFirstResponder {
+            self.sentenceTextView.resignFirstResponder()
+        }
     }
     
     @IBAction func save() {
