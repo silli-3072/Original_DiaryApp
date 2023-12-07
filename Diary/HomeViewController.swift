@@ -7,6 +7,7 @@ class HomeViewController: UIViewController {
     let realm = try! Realm()
     
     var timeOfDay: String = ""
+    var modifiedDateCount: Int = 0
     
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var addMorningButton: UIButton!
@@ -23,11 +24,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let date = getCurrentDate()
-        dayLabel.text = stringConversion(date: date)
-        
-        getMorningDiaryDate()
-        getNightDiaryDate()
+        updateUI()
     }
     
     @IBAction func addMorningDiary() {
@@ -42,9 +39,23 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func addDay() {
+        modifiedDateCount += 1
+        
+        updateUI()
+    }
+    
+    @IBAction func subtractDay() {
+        modifiedDateCount -= 1
+        
+        updateUI()
+    }
+    
     func getCurrentDate() -> Date {
+        let calendar = Calendar(identifier: .gregorian)
         let date = NSDate()
-        return  date as Date
+        let modifiedDate = calendar.date(byAdding: .day, value: modifiedDateCount, to: date as Date)!
+        return  modifiedDate as Date
     }
     
     func stringConversion(date: Date) -> String{
@@ -58,7 +69,7 @@ class HomeViewController: UIViewController {
     
     func getMorningDiaryDate() {
         let morningDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'morning'")
-        var arrayCount = morningDiary.count
+        let arrayCount = morningDiary.count
         
         if arrayCount == 0 {
             return
@@ -69,6 +80,8 @@ class HomeViewController: UIViewController {
             
             if dayLabel.text == dayData {
                 addMorningButton.setTitle(morningDiary[i].sentence, for: .normal)
+            } else {
+                addMorningButton.setTitle("", for: .normal)
             }
             
         }
@@ -76,7 +89,7 @@ class HomeViewController: UIViewController {
     
     func getNightDiaryDate() {
         let nightDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'night'")
-        var arrayCount = nightDiary.count
+        let arrayCount = nightDiary.count
         
         if arrayCount == 0 {
             return
@@ -87,9 +100,19 @@ class HomeViewController: UIViewController {
             
             if dayLabel.text == dayData {
                 addNightButton.setTitle(nightDiary[i].sentence, for: .normal)
+            } else {
+                addNightButton.setTitle("", for: .normal)
             }
             
         }
+    }
+    
+    func updateUI() {
+        let date = getCurrentDate()
+        dayLabel.text = stringConversion(date: date)
+        
+        getMorningDiaryDate()
+        getNightDiaryDate()
     }
     
     func transition(timeOfDay: String) {
