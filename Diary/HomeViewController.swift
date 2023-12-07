@@ -8,6 +8,7 @@ class HomeViewController: UIViewController {
     
     var timeOfDay: String = ""
     var modifiedDateCount: Int = 0
+    var sentence: String = ""
     
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var addMorningButton: UIButton!
@@ -29,13 +30,17 @@ class HomeViewController: UIViewController {
     
     @IBAction func addMorningDiary() {
         timeOfDay = "morning"
-        transition(timeOfDay: timeOfDay)
+        sentence = getMorningDiaryDate()
+        
+        transition(timeOfDay: timeOfDay,sentence: sentence)
         
     }
     
     @IBAction func addNightDiary() {
         timeOfDay = "night"
-        transition(timeOfDay: timeOfDay)
+        sentence = getNightDiaryDate()
+        
+        transition(timeOfDay: timeOfDay, sentence: sentence)
         
     }
     
@@ -67,44 +72,51 @@ class HomeViewController: UIViewController {
         
     }
     
-    func getMorningDiaryDate() {
+    func getMorningDiaryDate() -> String{
         let morningDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'morning'")
         let arrayCount = morningDiary.count
         
         if arrayCount == 0 {
-            return
+            return sentence
         }
         
         for i in 0...arrayCount - 1 {
             let dayData = stringConversion(date: morningDiary[i].day)
             
             if dayLabel.text == dayData {
-                addMorningButton.setTitle(morningDiary[i].sentence, for: .normal)
+                sentence = morningDiary[i].sentence
+                addMorningButton.setTitle(sentence, for: .normal)
+                return sentence
             } else {
                 addMorningButton.setTitle("", for: .normal)
             }
             
         }
+        return sentence
     }
     
-    func getNightDiaryDate() {
+    func getNightDiaryDate() -> String{
         let nightDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'night'")
         let arrayCount = nightDiary.count
         
         if arrayCount == 0 {
-            return
+            return sentence
         }
         
         for i in 0...arrayCount - 1 {
             let dayData = stringConversion(date: nightDiary[i].day)
             
             if dayLabel.text == dayData {
-                addNightButton.setTitle(nightDiary[i].sentence, for: .normal)
+                sentence = nightDiary[i].sentence
+                addNightButton.setTitle(sentence, for: .normal)
+                return sentence
             } else {
                 addNightButton.setTitle("", for: .normal)
             }
             
         }
+        
+        return sentence
     }
     
     func updateUI() {
@@ -115,13 +127,14 @@ class HomeViewController: UIViewController {
         getNightDiaryDate()
     }
     
-    func transition(timeOfDay: String) {
+    func transition(timeOfDay: String, sentence: String) {
         let storyboard: UIStoryboard = self.storyboard!
         let addDiaryVC = storyboard.instantiateViewController(withIdentifier: "AddDiary") as! UINavigationController
         addDiaryVC.modalPresentationStyle = .fullScreen
         let getAddDiaryVC = addDiaryVC.viewControllers[0] as! AddDiaryViewController
         getAddDiaryVC.dayData = dayLabel.text!
         getAddDiaryVC.timeOfDay = timeOfDay
+        getAddDiaryVC.sentence = sentence
         self.present(addDiaryVC, animated: true, completion: nil)
     }
     

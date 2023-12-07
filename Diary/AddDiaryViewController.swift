@@ -8,6 +8,7 @@ class AddDiaryViewController: UIViewController {
     
     var dayData: String = ""
     var timeOfDay: String = ""
+    var sentence: String = ""
     
     @IBOutlet var sentenceTextView: UITextView!
     
@@ -22,6 +23,7 @@ class AddDiaryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.title = dayData
+        sentenceTextView.text = sentence
         
     }
     
