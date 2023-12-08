@@ -140,10 +140,23 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFw-qS-QkX">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFw-qS-QkX" customClass="FSCalendar">
                                 <rect key="frame" x="16" y="79" width="361" height="394"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="0.96078431369999995" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value="yyyy年 MM月"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7zA-Gp-46d" id="evH-YE-fWi"/>
+                                    <outlet property="delegate" destination="7zA-Gp-46d" id="8Tf-hQ-AD0"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Id-Od-TtN"/>
@@ -151,6 +164,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Calender" image="calendar" catalog="system" id="hli-CL-sQf"/>
                     <connections>
+                        <outlet property="calendar" destination="uFw-qS-QkX" id="Ogl-iB-Yge"/>
                         <outlet property="morningButton" destination="kU7-Ab-J4b" id="hQn-aX-IqV"/>
                         <outlet property="nightButton" destination="9T4-ie-wQ4" id="kLf-57-U1B"/>
                     </connections>
@@ -204,9 +218,6 @@
         <image name="pencil.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

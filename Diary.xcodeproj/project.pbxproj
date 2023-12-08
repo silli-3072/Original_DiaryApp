@@ -19,6 +19,8 @@
 		824030A52B1DB600003E8F99 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 824030A42B1DB600003E8F99 /* Realm */; };
 		824030A72B1DB600003E8F99 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 824030A62B1DB600003E8F99 /* RealmSwift */; };
 		824030A92B1DB720003E8F99 /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824030A82B1DB720003E8F99 /* DiaryData.swift */; };
+		824030C62B22B4CE003E8F99 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 824030C52B22B4CE003E8F99 /* FSCalendar */; };
+		824030C92B22B601003E8F99 /* CalculateCalendarLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 824030C82B22B601003E8F99 /* CalculateCalendarLogic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824030C92B22B601003E8F99 /* CalculateCalendarLogic in Frameworks */,
 				824030A72B1DB600003E8F99 /* RealmSwift in Frameworks */,
+				824030C62B22B4CE003E8F99 /* FSCalendar in Frameworks */,
 				824030A52B1DB600003E8F99 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +106,8 @@
 			packageProductDependencies = (
 				824030A42B1DB600003E8F99 /* Realm */,
 				824030A62B1DB600003E8F99 /* RealmSwift */,
+				824030C52B22B4CE003E8F99 /* FSCalendar */,
+				824030C82B22B601003E8F99 /* CalculateCalendarLogic */,
 			);
 			productName = Diary;
 			productReference = 824030862B1C9184003E8F99 /* Diary.app */;
@@ -133,6 +139,8 @@
 			mainGroup = 8240307D2B1C9184003E8F99;
 			packageReferences = (
 				824030A32B1DB600003E8F99 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				824030C42B22B4CE003E8F99 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				824030C72B22B601003E8F99 /* XCRemoteSwiftPackageReference "handMadeCalendarAdvance" */,
 			);
 			productRefGroup = 824030872B1C9184003E8F99 /* Products */;
 			projectDirPath = "";
@@ -400,6 +408,22 @@
 				kind = branch;
 			};
 		};
+		824030C42B22B4CE003E8F99 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		824030C72B22B601003E8F99 /* XCRemoteSwiftPackageReference "handMadeCalendarAdvance" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fumiyasac/handMadeCalendarAdvance";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -412,6 +436,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 824030A32B1DB600003E8F99 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		824030C52B22B4CE003E8F99 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 824030C42B22B4CE003E8F99 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		824030C82B22B601003E8F99 /* CalculateCalendarLogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 824030C72B22B601003E8F99 /* XCRemoteSwiftPackageReference "handMadeCalendarAdvance" */;
+			productName = CalculateCalendarLogic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
