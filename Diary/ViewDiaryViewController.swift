@@ -12,6 +12,7 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
     
     var timeOfDay: String = ""
     var sentence: String = ""
+    var existenceDiaryDateArray: [String] = []
     
     @IBOutlet var calendar: FSCalendar!
     @IBOutlet var morningButton: UIButton!
@@ -74,6 +75,26 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
         
         getMorningDiaryDate()
         getNightDiaryDate()
+        
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let diary = realm.objects(DiaryData.self)
+        let arrayCount = diary.count
+        
+        if arrayCount == 0 {
+            return 0
+        }
+        
+        for i in 0...arrayCount - 1 {
+            var strDate = stringConversion(date: diary[i].day)
+            existenceDiaryDateArray.append(strDate)
+        }
+        
+        if existenceDiaryDateArray.first(where: { $0 == stringConversion(date: date) }) != nil {
+            return 1
+        }
+        return 0
         
     }
     
