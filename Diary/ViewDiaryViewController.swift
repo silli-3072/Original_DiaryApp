@@ -24,6 +24,17 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
         self.calendar.dataSource = self
         self.calendar.delegate = self
         
+        calendar.calendarWeekdayView.weekdayLabels[0].text = "日"
+        calendar.calendarWeekdayView.weekdayLabels[1].text = "月"
+        calendar.calendarWeekdayView.weekdayLabels[2].text = "火"
+        calendar.calendarWeekdayView.weekdayLabels[3].text = "水"
+        calendar.calendarWeekdayView.weekdayLabels[4].text = "木"
+        calendar.calendarWeekdayView.weekdayLabels[5].text = "金"
+        calendar.calendarWeekdayView.weekdayLabels[6].text = "土"
+        
+        calendar.calendarWeekdayView.weekdayLabels[0].textColor = .systemRed
+        calendar.calendarWeekdayView.weekdayLabels[6].textColor = .systemBlue
+        
         morningButton.layer.cornerRadius = 20
         nightButton.layer.cornerRadius = 20
         
