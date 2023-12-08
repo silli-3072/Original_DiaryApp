@@ -131,6 +131,9 @@
                                 <color key="tintColor" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="editMorningDiary" destination="7zA-Gp-46d" eventType="touchUpInside" id="3Oj-gg-HsX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T4-ie-wQ4">
                                 <rect key="frame" x="46" y="655" width="300" height="100"/>
@@ -139,6 +142,9 @@
                                 <color key="tintColor" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="editNightDiary" destination="7zA-Gp-46d" eventType="touchUpInside" id="sgd-zz-YYm"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFw-qS-QkX" customClass="FSCalendar">
                                 <rect key="frame" x="16" y="79" width="361" height="365"/>
