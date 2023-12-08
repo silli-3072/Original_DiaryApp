@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
     
     func stringConversion(date: Date) -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.dateFormat = "yyyy年MM月dd日"
         let dateStr = formatter.string(from: date as Date)
         formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale?
         return  dateStr

@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kU7-Ab-J4b">
-                                <rect key="frame" x="46" y="515" width="300" height="100"/>
+                                <rect key="frame" x="46" y="537" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.2784313725" green="0.71764705880000002" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -133,7 +133,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T4-ie-wQ4">
-                                <rect key="frame" x="46" y="643" width="300" height="100"/>
+                                <rect key="frame" x="46" y="655" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.75294117650000003" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.18039215689999999" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -141,7 +141,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFw-qS-QkX" customClass="FSCalendar">
-                                <rect key="frame" x="16" y="79" width="361" height="394"/>
+                                <rect key="frame" x="16" y="79" width="361" height="365"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.96078431369999995" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -158,15 +158,23 @@
                                     <outlet property="delegate" destination="7zA-Gp-46d" id="8Tf-hQ-AD0"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日付を表示" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQf-fo-92h">
+                                <rect key="frame" x="71" y="449" width="250" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Id-Od-TtN"/>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.96078431369999995" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calender" image="calendar" catalog="system" id="hli-CL-sQf"/>
                     <connections>
-                        <outlet property="calendar" destination="uFw-qS-QkX" id="Ogl-iB-Yge"/>
-                        <outlet property="morningButton" destination="kU7-Ab-J4b" id="hQn-aX-IqV"/>
-                        <outlet property="nightButton" destination="9T4-ie-wQ4" id="kLf-57-U1B"/>
+                        <outlet property="calendar" destination="uFw-qS-QkX" id="YB7-Gf-3g1"/>
+                        <outlet property="dayLabel" destination="OQf-fo-92h" id="h6C-kA-3ej"/>
+                        <outlet property="morningButton" destination="kU7-Ab-J4b" id="rfv-YA-lke"/>
+                        <outlet property="nightButton" destination="9T4-ie-wQ4" id="X5G-Rm-x0Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjz-mP-gsn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

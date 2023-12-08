@@ -38,7 +38,7 @@ class AddDiaryViewController: UIViewController {
         let diaryData = DiaryData()
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy年MM月dd日"
         let convertDate = dateFormatter.date(from: dayData)
         
         diaryData.day = convertDate!
