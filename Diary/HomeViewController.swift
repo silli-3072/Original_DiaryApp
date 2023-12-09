@@ -2,7 +2,7 @@
 import UIKit
 import RealmSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let realm = try! Realm()
     
@@ -16,6 +16,22 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let leftSwipeGesture = UISwipeGestureRecognizer(
+            target: self,
+            action: #selector(HomeViewController.getSwipe(_:))
+        )
+        
+        leftSwipeGesture.direction = .left
+        self.view.addGestureRecognizer(leftSwipeGesture)
+                
+        let rightSwipeGesture = UISwipeGestureRecognizer(
+                target: self,
+                action: #selector(HomeViewController.getSwipe(_:))
+        )
+        
+        rightSwipeGesture.direction = .right
+        self.view.addGestureRecognizer(rightSwipeGesture)
         
         addMorningButton.layer.cornerRadius = 30
         addNightButton.layer.cornerRadius = 30
@@ -54,6 +70,19 @@ class HomeViewController: UIViewController {
         modifiedDateCount -= 1
         
         updateUI()
+    }
+    
+    @objc func getSwipe(_ sender: UISwipeGestureRecognizer) {
+            switch sender.direction {
+            case .left:
+                modifiedDateCount += 1
+                updateUI()
+            case .right:
+                modifiedDateCount += 1
+                updateUI()
+            default:
+                break
+            }
     }
     
     func getCurrentDate() -> Date {
