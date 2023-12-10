@@ -121,6 +121,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             
         }
+        
+        sentence = ""
         return sentence
     }
     
@@ -145,6 +147,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             
         }
         
+        sentence = ""
         return sentence
     }
     

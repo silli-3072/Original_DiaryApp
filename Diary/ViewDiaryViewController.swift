@@ -174,6 +174,8 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
             }
             
         }
+        
+        sentence = ""
         return sentence
     }
     
@@ -198,6 +200,7 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
             
         }
         
+        sentence = ""
         return sentence
     }
     
