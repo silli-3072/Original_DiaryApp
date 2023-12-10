@@ -78,7 +78,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
                 modifiedDateCount += 1
                 updateUI()
             case .right:
-                modifiedDateCount += 1
+                modifiedDateCount -= 1
                 updateUI()
             default:
                 break
