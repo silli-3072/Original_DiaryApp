@@ -35,6 +35,11 @@ class AddDiaryViewController: UIViewController {
     }
     
     @IBAction func save() {
+        displaySaveAlert()
+        
+    }
+    
+    func diarySave() {
         let diaryData = DiaryData()
         
         let dateFormatter = DateFormatter()
@@ -48,8 +53,32 @@ class AddDiaryViewController: UIViewController {
         try! realm.write {
             realm.add(diaryData)
         }
+    }
+    
+    func displaySaveAlert() {
+        let alert = UIAlertController(title: "日記を保存しますか？", message: "", preferredStyle: .alert)
         
-        self.dismiss(animated: true)
+        alert.addAction(
+            UIAlertAction(
+                title: "保存",
+                style: .default,
+                handler: { action in
+                    self.diarySave()
+                    self.dismiss(animated: true)
+                }
+            )
+        )
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: .cancel,
+                handler: nil
+            )
+        )
+        
+        present(alert, animated: true, completion: nil)
+        
     }
     
 }
