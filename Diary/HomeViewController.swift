@@ -5,6 +5,7 @@ import RealmSwift
 class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let realm = try! Realm()
+    let buttonIcon = UIImage(systemName: "pencil.circle", withConfiguration: .none)
     
     var timeOfDay: String = ""
     var modifiedDateCount: Int = 0
@@ -24,14 +25,17 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         
         leftSwipeGesture.direction = .left
         self.view.addGestureRecognizer(leftSwipeGesture)
-                
+        
         let rightSwipeGesture = UISwipeGestureRecognizer(
-                target: self,
-                action: #selector(HomeViewController.getSwipe(_:))
+            target: self,
+            action: #selector(HomeViewController.getSwipe(_:))
         )
         
         rightSwipeGesture.direction = .right
         self.view.addGestureRecognizer(rightSwipeGesture)
+        
+        addMorningButton.setImage(buttonIcon, for: .normal)
+        addNightButton.setImage(buttonIcon, for: .normal)
         
         addMorningButton.layer.cornerRadius = 30
         addNightButton.layer.cornerRadius = 30
@@ -73,16 +77,16 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func getSwipe(_ sender: UISwipeGestureRecognizer) {
-            switch sender.direction {
-            case .left:
-                modifiedDateCount += 1
-                updateUI()
-            case .right:
-                modifiedDateCount -= 1
-                updateUI()
-            default:
-                break
-            }
+        switch sender.direction {
+        case .left:
+            modifiedDateCount += 1
+            updateUI()
+        case .right:
+            modifiedDateCount -= 1
+            updateUI()
+        default:
+            break
+        }
     }
     
     func getCurrentDate() -> Date {
@@ -115,9 +119,11 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             if dayLabel.text == dayData {
                 sentence = morningDiary[i].sentence
                 addMorningButton.setTitle(sentence, for: .normal)
+                addMorningButton.setImage(nil, for: .normal)
                 return sentence
             } else {
                 addMorningButton.setTitle("", for: .normal)
+                addMorningButton.setImage(buttonIcon, for: .normal)
             }
             
         }
@@ -140,9 +146,11 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             if dayLabel.text == dayData {
                 sentence = nightDiary[i].sentence
                 addNightButton.setTitle(sentence, for: .normal)
+                addNightButton.setImage(nil, for: .normal)
                 return sentence
             } else {
                 addNightButton.setTitle("", for: .normal)
+                addNightButton.setImage(buttonIcon, for: .normal)
             }
             
         }
