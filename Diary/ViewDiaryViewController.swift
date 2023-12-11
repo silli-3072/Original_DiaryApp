@@ -13,6 +13,7 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
     var timeOfDay: String = ""
     var sentence: String = ""
     var existenceDiaryDateArray: [String] = []
+    var saveData: UserDefaults = UserDefaults.standard
     
     @IBOutlet var calendar: FSCalendar!
     @IBOutlet var morningButton: UIButton!
@@ -21,6 +22,10 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var currentDate = getCurrentDate()
+        var strCurrentDate = stringConversion(date: currentDate)
+        saveData.set(strCurrentDate, forKey: "date")
         
         self.calendar.dataSource = self
         self.calendar.delegate = self
@@ -44,10 +49,9 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        var currentDate = getCurrentDate()
-        var strCurrentDate = stringConversion(date: currentDate)
+        var date = saveData.string(forKey: "date")
         
-        dayLabel.text = strCurrentDate
+        dayLabel.text = date
         
         getMorningDiaryDate()
         getNightDiaryDate()
@@ -72,6 +76,8 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         dayLabel.text = stringConversion(date: date)
+        
+        saveData.set(stringConversion(date: date), forKey: "date")
         
         getMorningDiaryDate()
         getNightDiaryDate()
