@@ -174,7 +174,8 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
             
             if dayLabel.text == dayData {
                 morningSentence = morningDiary[i].sentence
-                morningButton.setTitle(morningSentence, for: .normal)
+                var editSentence = buttonWordCountCheck(sentence: morningSentence)
+                morningButton.setTitle(editSentence, for: .normal)
                 return morningSentence
             } else {
                 morningButton.setTitle("", for: .normal)
@@ -199,7 +200,8 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
             
             if dayLabel.text == dayData {
                 nightSentence = nightDiary[i].sentence
-                nightButton.setTitle(nightSentence, for: .normal)
+                var editSentence = buttonWordCountCheck(sentence: nightSentence)
+                nightButton.setTitle(editSentence, for: .normal)
                 return nightSentence
             } else {
                 nightButton.setTitle("", for: .normal)
@@ -209,6 +211,21 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
         
         nightSentence = ""
         return nightSentence
+    }
+    
+    func buttonWordCountCheck(sentence: String) -> String{
+        var sentence = sentence
+        var wordCount = sentence.count
+        
+        if wordCount >= 70 {
+            var eraseNumber = wordCount - 70
+            sentence.removeLast(eraseNumber)
+            sentence = sentence + "..."
+            
+        }
+        
+        return sentence
+        
     }
     
     func transition(timeOfDay: String, sentence: String) {

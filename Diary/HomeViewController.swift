@@ -120,7 +120,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             
             if dayLabel.text == dayData {
                 morningSentence = morningDiary[i].sentence
-                addMorningButton.setTitle(morningSentence, for: .normal)
+                var editSentence = buttonWordCountCheck(sentence: morningSentence)
+                addMorningButton.setTitle(editSentence, for: .normal)
                 addMorningButton.setImage(nil, for: .normal)
                 return morningSentence
             } else {
@@ -149,7 +150,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             
             if dayLabel.text == dayData {
                 nightSentence = nightDiary[i].sentence
-                addNightButton.setTitle(nightSentence, for: .normal)
+                var editSentence = buttonWordCountCheck(sentence: nightSentence)
+                addNightButton.setTitle(editSentence, for: .normal)
                 addNightButton.setImage(nil, for: .normal)
                 return nightSentence
             } else {
@@ -161,6 +163,23 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         
         nightSentence = ""
         return nightSentence
+    }
+    
+    func buttonWordCountCheck(sentence: String) -> String{
+        var sentence = sentence
+        
+        var wordCount = sentence.count
+        
+        if wordCount >= 130 {
+            var eraseNumber = wordCount - 130
+            sentence.removeLast(eraseNumber)
+            sentence = sentence + "..."
+            
+            return sentence
+        }
+        
+        return sentence
+        
     }
     
     func updateUI() {
