@@ -63,6 +63,7 @@ class AddDiaryViewController: UIViewController {
                 title: "保存",
                 style: .default,
                 handler: { action in
+                    self.erasePastDiary()
                     self.diarySave()
                     self.dismiss(animated: true)
                 }
@@ -78,6 +79,39 @@ class AddDiaryViewController: UIViewController {
         )
         
         present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func erasePastDiary() {
+        let diary = realm.objects(DiaryData.self).filter("timeOfDay == %@", timeOfDay)
+        let arrayCount = diary.count
+        
+        print("🌝",arrayCount)
+        
+        if arrayCount == 0 {
+            return
+        }
+        
+        for i in 0...arrayCount - 1 {
+            let diaryDayData = stringConversion(date: diary[i].day)
+            
+            if dayData == diaryDayData {
+                try! realm.write {
+                    let eraseData = diary[i]
+                    realm.delete(eraseData)
+                }
+            }
+            
+        }
+        
+    }
+    
+    func stringConversion(date: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日"
+        let dateStr = formatter.string(from: date as Date)
+        formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale?
+        return  dateStr
         
     }
     

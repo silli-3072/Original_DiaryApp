@@ -10,8 +10,9 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     
-    var timeOfDay: String = ""
-    var sentence: String = ""
+    var timeOfDay: String = ""    
+    var morningSentence: String = ""
+    var nightSentence: String = ""
     var existenceDiaryDateArray: [String] = []
     var saveData: UserDefaults = UserDefaults.standard
     
@@ -60,17 +61,17 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
     
     @IBAction func editMorningDiary() {
         timeOfDay = "morning"
-        sentence = getMorningDiaryDate()
+        morningSentence = getMorningDiaryDate()
         
-        transition(timeOfDay: timeOfDay,sentence: sentence)
+        transition(timeOfDay: timeOfDay,sentence: morningSentence)
         
     }
     
     @IBAction func editNightDiary() {
         timeOfDay = "night"
-        sentence = getNightDiaryDate()
+        nightSentence = getNightDiaryDate()
         
-        transition(timeOfDay: timeOfDay, sentence: sentence)
+        transition(timeOfDay: timeOfDay, sentence: nightSentence)
         
     }
     
@@ -165,24 +166,24 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
         let arrayCount = morningDiary.count
         
         if arrayCount == 0 {
-            return sentence
+            return morningSentence
         }
         
         for i in 0...arrayCount - 1 {
             let dayData = stringConversion(date: morningDiary[i].day)
             
             if dayLabel.text == dayData {
-                sentence = morningDiary[i].sentence
-                morningButton.setTitle(sentence, for: .normal)
-                return sentence
+                morningSentence = morningDiary[i].sentence
+                morningButton.setTitle(morningSentence, for: .normal)
+                return morningSentence
             } else {
                 morningButton.setTitle("", for: .normal)
             }
             
         }
         
-        sentence = ""
-        return sentence
+        morningSentence = ""
+        return morningSentence
     }
     
     func getNightDiaryDate() -> String{
@@ -190,24 +191,24 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
         let arrayCount = nightDiary.count
         
         if arrayCount == 0 {
-            return sentence
+            return nightSentence
         }
         
         for i in 0...arrayCount - 1 {
             let dayData = stringConversion(date: nightDiary[i].day)
             
             if dayLabel.text == dayData {
-                sentence = nightDiary[i].sentence
-                nightButton.setTitle(sentence, for: .normal)
-                return sentence
+                nightSentence = nightDiary[i].sentence
+                nightButton.setTitle(nightSentence, for: .normal)
+                return nightSentence
             } else {
                 nightButton.setTitle("", for: .normal)
             }
             
         }
         
-        sentence = ""
-        return sentence
+        nightSentence = ""
+        return nightSentence
     }
     
     func transition(timeOfDay: String, sentence: String) {

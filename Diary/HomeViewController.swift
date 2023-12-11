@@ -9,7 +9,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var timeOfDay: String = ""
     var modifiedDateCount: Int = 0
-    var sentence: String = ""
+    var morningSentence: String = ""
+    var nightSentence: String = ""
     
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var addMorningButton: UIButton!
@@ -50,17 +51,17 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func addMorningDiary() {
         timeOfDay = "morning"
-        sentence = getMorningDiaryDate()
+        morningSentence = getMorningDiaryDate()
         
-        transition(timeOfDay: timeOfDay,sentence: sentence)
+        transition(timeOfDay: timeOfDay,sentence: morningSentence)
         
     }
     
     @IBAction func addNightDiary() {
         timeOfDay = "night"
-        sentence = getNightDiaryDate()
+        nightSentence = getNightDiaryDate()
         
-        transition(timeOfDay: timeOfDay, sentence: sentence)
+        transition(timeOfDay: timeOfDay, sentence: nightSentence)
         
     }
     
@@ -108,19 +109,20 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     func getMorningDiaryDate() -> String{
         let morningDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'morning'")
         let arrayCount = morningDiary.count
+        print("🌻",arrayCount)
         
         if arrayCount == 0 {
-            return sentence
+            return morningSentence
         }
         
         for i in 0...arrayCount - 1 {
             let dayData = stringConversion(date: morningDiary[i].day)
             
             if dayLabel.text == dayData {
-                sentence = morningDiary[i].sentence
-                addMorningButton.setTitle(sentence, for: .normal)
+                morningSentence = morningDiary[i].sentence
+                addMorningButton.setTitle(morningSentence, for: .normal)
                 addMorningButton.setImage(nil, for: .normal)
-                return sentence
+                return morningSentence
             } else {
                 addMorningButton.setTitle("", for: .normal)
                 addMorningButton.setImage(buttonIcon, for: .normal)
@@ -128,26 +130,28 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             
         }
         
-        sentence = ""
-        return sentence
+        morningSentence = ""
+        return morningSentence
     }
     
     func getNightDiaryDate() -> String{
         let nightDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'night'")
         let arrayCount = nightDiary.count
         
+        print("🎋",arrayCount)
+        
         if arrayCount == 0 {
-            return sentence
+            return nightSentence
         }
         
         for i in 0...arrayCount - 1 {
             let dayData = stringConversion(date: nightDiary[i].day)
             
             if dayLabel.text == dayData {
-                sentence = nightDiary[i].sentence
-                addNightButton.setTitle(sentence, for: .normal)
+                nightSentence = nightDiary[i].sentence
+                addNightButton.setTitle(nightSentence, for: .normal)
                 addNightButton.setImage(nil, for: .normal)
-                return sentence
+                return nightSentence
             } else {
                 addNightButton.setTitle("", for: .normal)
                 addNightButton.setImage(buttonIcon, for: .normal)
@@ -155,8 +159,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             
         }
         
-        sentence = ""
-        return sentence
+        nightSentence = ""
+        return nightSentence
     }
     
     func updateUI() {
@@ -165,6 +169,9 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         
         getMorningDiaryDate()
         getNightDiaryDate()
+        
+//        print("🍌",morningSentence)
+//        print("🍇",nightSentence)
     }
     
     func transition(timeOfDay: String, sentence: String) {
