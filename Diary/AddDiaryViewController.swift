@@ -86,8 +86,6 @@ class AddDiaryViewController: UIViewController {
         let diary = realm.objects(DiaryData.self).filter("timeOfDay == %@", timeOfDay)
         let arrayCount = diary.count
         
-        print("🌝",arrayCount)
-        
         if arrayCount == 0 {
             return
         }

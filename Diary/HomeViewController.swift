@@ -109,7 +109,6 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     func getMorningDiaryDate() -> String{
         let morningDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'morning'")
         let arrayCount = morningDiary.count
-        print("🌻",arrayCount)
         
         if arrayCount == 0 {
             return morningSentence
@@ -138,8 +137,6 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     func getNightDiaryDate() -> String{
         let nightDiary = realm.objects(DiaryData.self).filter("timeOfDay == 'night'")
         let arrayCount = nightDiary.count
-        
-        print("🎋",arrayCount)
         
         if arrayCount == 0 {
             return nightSentence
@@ -189,8 +186,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         getMorningDiaryDate()
         getNightDiaryDate()
         
-//        print("🍌",morningSentence)
-//        print("🍇",nightSentence)
+        
     }
     
     func transition(timeOfDay: String, sentence: String) {
