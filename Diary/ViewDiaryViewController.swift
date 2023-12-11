@@ -54,6 +54,8 @@ class ViewDiaryViewController: UIViewController, FSCalendarDelegate, FSCalendarD
         
         dayLabel.text = date
         
+        self.calendar.reloadData()
+        
         getMorningDiaryDate()
         getNightDiaryDate()
         
