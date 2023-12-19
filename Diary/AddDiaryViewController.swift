@@ -39,6 +39,31 @@ class AddDiaryViewController: UIViewController {
         
     }
     
+    @IBAction func back() {
+        let alert = UIAlertController(title: "日記が保存されていません", message: "", preferredStyle: .alert)
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "戻る",
+                style: .default,
+                handler: { action in
+                    self.dismiss(animated: true, completion: nil)
+                }
+            )
+        )
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: .cancel,
+                handler: nil
+            )
+        )
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     func diarySave() {
         let diaryData = DiaryData()
         
