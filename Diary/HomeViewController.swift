@@ -36,7 +36,10 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         self.view.addGestureRecognizer(rightSwipeGesture)
         
         addMorningButton.layer.cornerRadius = 30
+        addMorningButton.setImage(buttonIcon, for: .normal)
+        
         addNightButton.layer.cornerRadius = 30
+        addNightButton.setImage(buttonIcon, for: .normal)
         
     }
     
@@ -118,9 +121,11 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
                 morningSentence = morningDiary[i].sentence
                 var editSentence = buttonWordCountCheck(sentence: morningSentence)
                 addMorningButton.setTitle(editSentence, for: .normal)
+                addMorningButton.setImage(nil, for: .normal)
                 return morningSentence
             } else {
                 addMorningButton.setTitle("", for: .normal)
+                addMorningButton.setImage(buttonIcon, for: .normal)
             }
             
         }
@@ -144,9 +149,11 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
                 nightSentence = nightDiary[i].sentence
                 var editSentence = buttonWordCountCheck(sentence: nightSentence)
                 addNightButton.setTitle(editSentence, for: .normal)
+                addNightButton.setImage(nil, for: .normal)
                 return nightSentence
             } else {
                 addNightButton.setTitle("", for: .normal)
+                addNightButton.setImage(buttonIcon, for: .normal)
             }
             
         }
@@ -178,23 +185,6 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         
         getMorningDiaryDate()
         getNightDiaryDate()
-        addIcon()
-        
-        
-    }
-    
-    func addIcon() {
-        if addMorningButton.currentTitle == "" {
-            addMorningButton.setImage(buttonIcon, for: .normal)
-        } else {
-            addMorningButton.setImage(nil, for: .normal)
-        }
-        
-        if addNightButton.currentTitle == "" {
-            addNightButton.setImage(buttonIcon, for: .normal)
-        } else {
-            addNightButton.setImage(nil, for: .normal)
-        }
         
     }
     
