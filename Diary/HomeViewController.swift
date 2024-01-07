@@ -1,6 +1,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -18,6 +19,17 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                
+            } else {
+                
+            }
+        }
+        
+        morningScheduleNotification()
+        nightScheduleNotification()
         
         let leftSwipeGesture = UISwipeGestureRecognizer(
             target: self,
@@ -160,6 +172,52 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         
         nightSentence = ""
         return nightSentence
+    }
+    
+    func morningScheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "おはようございます！"
+        content.body = "朝の日記を書いてみませんか？"
+        content.sound = .default
+
+        var dateComponents = DateComponents()
+        dateComponents.hour = 9
+        dateComponents.minute = 0
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+        let request = UNNotificationRequest(identifier: "morningNotification", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("通知のスケジュールに失敗しました：\(error.localizedDescription)")
+            } else {
+                print("通知が正常にスケジュールされました")
+            }
+        }
+    }
+    
+    func nightScheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "1日お疲れ様でした"
+        content.body = "夜の日記を書いてみませんか？"
+        content.sound = .default
+
+        var dateComponents = DateComponents()
+        dateComponents.hour = 18
+        dateComponents.minute = 0
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+        let request = UNNotificationRequest(identifier: "morningNotification", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("通知のスケジュールに失敗しました：\(error.localizedDescription)")
+            } else {
+                print("通知が正常にスケジュールされました")
+            }
+        }
     }
     
     func buttonWordCountCheck(sentence: String) -> String{
