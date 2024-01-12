@@ -21,6 +21,7 @@
 		824030A92B1DB720003E8F99 /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824030A82B1DB720003E8F99 /* DiaryData.swift */; };
 		824030C62B22B4CE003E8F99 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 824030C52B22B4CE003E8F99 /* FSCalendar */; };
 		824030C92B22B601003E8F99 /* CalculateCalendarLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 824030C82B22B601003E8F99 /* CalculateCalendarLogic */; };
+		825B5EEF2B50FF1A006EB2C8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B5EEE2B50FF1A006EB2C8 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8240309F2B1D66F4003E8F99 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
 		824030A12B1D6701003E8F99 /* ViewDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDiaryViewController.swift; sourceTree = "<group>"; };
 		824030A82B1DB720003E8F99 /* DiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryData.swift; sourceTree = "<group>"; };
+		825B5EEE2B50FF1A006EB2C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				8240309D2B1D66E1003E8F99 /* HomeViewController.swift */,
 				8240309F2B1D66F4003E8F99 /* AddDiaryViewController.swift */,
 				824030A12B1D6701003E8F99 /* ViewDiaryViewController.swift */,
+				825B5EEE2B50FF1A006EB2C8 /* SettingViewController.swift */,
 				824030922B1C9187003E8F99 /* Assets.xcassets */,
 				824030942B1C9187003E8F99 /* LaunchScreen.storyboard */,
 				824030972B1C9187003E8F99 /* Info.plist */,
@@ -172,6 +175,7 @@
 				8240308E2B1C9184003E8F99 /* ViewController.swift in Sources */,
 				8240308A2B1C9184003E8F99 /* AppDelegate.swift in Sources */,
 				824030A92B1DB720003E8F99 /* DiaryData.swift in Sources */,
+				825B5EEF2B50FF1A006EB2C8 /* SettingViewController.swift in Sources */,
 				8240308C2B1C9184003E8F99 /* SceneDelegate.swift in Sources */,
 				824030A02B1D66F4003E8F99 /* AddDiaryViewController.swift in Sources */,
 				8240309E2B1D66E1003E8F99 /* HomeViewController.swift in Sources */,
